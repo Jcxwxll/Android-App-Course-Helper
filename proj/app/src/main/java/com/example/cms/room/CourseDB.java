@@ -37,6 +37,7 @@ public abstract class CourseDB extends RoomDatabase {
         return INSTANCE;
     }
 
+    // Initialises the DB with some courses [TODO: Remove when ready to be submitted]
     private static RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {

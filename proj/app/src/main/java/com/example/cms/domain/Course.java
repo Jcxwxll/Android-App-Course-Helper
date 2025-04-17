@@ -22,12 +22,14 @@ public class Course {
     @ColumnInfo(name = "lecturer")
     private String lecturerName;
 
+    // Constructor
     public Course(@NonNull String courseCode, @NonNull String courseName, @NonNull String lecturerName) {
         this.courseCode = courseCode;
         this.courseName = courseName;
         this.lecturerName = lecturerName;
     }
 
+    // Getters and setters
     public int getCourseID() {
         return courseID;
     }

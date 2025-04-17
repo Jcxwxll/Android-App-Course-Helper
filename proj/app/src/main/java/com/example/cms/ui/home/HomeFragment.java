@@ -28,11 +28,13 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        // Set up our recycler view and the course list
         final RecyclerView recyclerView = binding.recyclerview;
         final CourseListAdapter adapter = new CourseListAdapter(new CourseListAdapter.CourseDiff());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        // Set up the provider
         courseViewModel = new ViewModelProvider(this).get(CoursesViewModel.class);
         courseViewModel.getAllCourses().observe(getViewLifecycleOwner(), adapter::submitList);
 
