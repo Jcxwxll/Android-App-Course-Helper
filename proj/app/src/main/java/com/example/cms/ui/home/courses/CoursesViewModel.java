@@ -1,4 +1,4 @@
-package com.example.cms.ui.courses;
+package com.example.cms.ui.home.courses;
 
 import android.app.Application;
 

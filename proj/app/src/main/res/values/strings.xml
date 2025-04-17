@@ -12,4 +12,7 @@
     <string name="menu_slideshow">Slideshow</string>
 
     <string name="add_course">Add Course</string>
+    <string name="hint_course">Course...</string>
+    <string name="button_save">Save</string>
+    <string name="empty_not_saved">Item cannot be empty.</string>
 </resources>

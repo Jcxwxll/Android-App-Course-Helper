@@ -46,6 +46,8 @@ public abstract class CourseDB extends RoomDatabase {
                 CourseDao courseDao = INSTANCE.courseDao();
                 courseDao.deleteAll();
 
+                // TODO: "The main activity should be empty when the app is first launched."
+                // This should be removed when ready to be submitted
                 Course c1 = new Course("CO2124", "Software Architecture and System Development", "Muhammad Iftikhar");
                 courseDao.insert(c1);
                 Course c2 = new Course("CO2301", "Project Management", "Donovan A. Anderson");
