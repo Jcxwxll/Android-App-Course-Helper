@@ -2,6 +2,7 @@
     <string name="app_name">proj2</string>
 
     <string name="first_fragment_label">Courses</string>
+    <string name="second_fragment_create_course_label">Create a Course</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
