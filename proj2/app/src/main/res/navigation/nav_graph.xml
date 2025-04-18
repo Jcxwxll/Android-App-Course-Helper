@@ -9,5 +9,19 @@
         android:id="@+id/FirstFragment"
         android:name="com.example.proj2.FirstFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first"/>
+        tools:layout="@layout/fragment_first">
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragmentCreateCourse"
+            app:destination="@id/SecondFragmentCreateCourse" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/SecondFragmentCreateCourse"
+        android:name="com.example.proj2.SecondFragmentCreateCourse"
+        android:label="@string/second_fragment_create_course_label"
+        tools:layout="@layout/fragment_create_course">
+        <action
+            android:id="@+id/action_SecondFragmentCreateCourse_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
 </navigation>
