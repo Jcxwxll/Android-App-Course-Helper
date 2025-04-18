@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">proj2</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="add_course">Add Course</string>
+    <string name="hint_course">Course...</string>
+    <string name="button_save">Save</string>
+    <string name="empty_not_saved">Item cannot be empty.</string>
+</resources>
