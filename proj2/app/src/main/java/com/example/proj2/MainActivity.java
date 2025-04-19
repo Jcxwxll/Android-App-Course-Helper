@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Set up our recycler view and the course list
         final RecyclerView recyclerView = binding.recyclerView;
-        final CourseListAdapter adapter = new CourseListAdapter(new CourseListAdapter.CourseDiff());
+        final CourseListAdapter adapter = new CourseListAdapter(new CourseListAdapter.CourseDiff(), this::onCourseDeleted);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -48,5 +48,11 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+
+    // This gets called downstream by the "long-press" so that the course
+    // can be deleted
+    public void onCourseDeleted(int courseId) {
+        courseViewModel.courseRepository.deleteByCourseId(courseId);
     }
 }
