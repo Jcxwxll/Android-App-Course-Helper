@@ -9,26 +9,32 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.proj2.dao.CourseDao;
+import com.example.proj2.dao.EnrollmentDao;
+import com.example.proj2.dao.StudentDao;
 import com.example.proj2.domain.Course;
+import com.example.proj2.domain.Enrollment;
+import com.example.proj2.domain.Student;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Course.class}, version = 1, exportSchema = false)
-public abstract class CourseDB extends RoomDatabase {
+@Database(entities = {Student.class, Course.class, Enrollment.class}, version = 1, exportSchema = false)
+public abstract class CMSDB extends RoomDatabase {
+    public abstract StudentDao studentDao();
     public abstract CourseDao courseDao();
+    public abstract EnrollmentDao enrollmentDao();
 
-    private static volatile CourseDB INSTANCE;
+    private static volatile CMSDB INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
     public static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
-    public static CourseDB getDatabase(final Context context) {
+    public static CMSDB getDatabase(final Context context) {
         if (INSTANCE == null) {
-            synchronized (CourseDB.class) {
+            synchronized (CMSDB.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            CourseDB.class, "course_db")
+                                    CMSDB.class, "cms_database")
                             .addCallback(sRoomDatabaseCallback)
                             .build();
                 }
