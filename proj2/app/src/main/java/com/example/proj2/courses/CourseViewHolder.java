@@ -10,6 +10,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.proj2.CourseDetailsActivity;
+import com.example.proj2.MainActivity;
 import com.example.proj2.R;
 import com.example.proj2.domain.Course;
 
@@ -19,8 +20,14 @@ public class CourseViewHolder extends RecyclerView.ViewHolder {
     private final TextView courseNameTextView;
     private final TextView lecturerNameTextView;
     private final CardView cardView;
+    private final OnCourseDeleteListener deleteListener;
 
-    public CourseViewHolder(View view) {
+    // An interface for when a course is deleted
+    public interface OnCourseDeleteListener {
+        void onCourseDeleted(int courseId);
+    }
+
+    public CourseViewHolder(View view, OnCourseDeleteListener listener) {
         super(view);
         // Find the Card by its id
         cardView = (CardView) view.findViewById(R.id.card_view);
@@ -28,6 +35,7 @@ public class CourseViewHolder extends RecyclerView.ViewHolder {
         courseNameTextView = (TextView) view.findViewById(R.id.course_name);
         lecturerNameTextView = (TextView) view.findViewById(R.id.lecturer_name);
         courseCodeTextView = (TextView) view.findViewById(R.id.course_code);
+        this.deleteListener = listener;
     }
 
     public void bind(Course course) {
@@ -43,11 +51,17 @@ public class CourseViewHolder extends RecyclerView.ViewHolder {
             intent.putExtra("courseId", course.getCourseId());
             v.getContext().startActivity(intent);
         });
+        // Set up the long press listener for the card view so when you long press it
+        // should delete the course
+        cardView.setOnLongClickListener(v -> {
+            deleteListener.onCourseDeleted(course.getCourseId());
+            return true;
+        });
     }
 
-    static CourseViewHolder create(ViewGroup parent) {
+    static CourseViewHolder create(ViewGroup parent, OnCourseDeleteListener listener) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.recyclerview_course, parent, false);
-        return new CourseViewHolder(view);
+        return new CourseViewHolder(view, listener);
     }
 }

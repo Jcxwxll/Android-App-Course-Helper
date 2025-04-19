@@ -9,13 +9,15 @@ import androidx.recyclerview.widget.ListAdapter;
 import com.example.proj2.domain.Course;
 
 public class CourseListAdapter extends ListAdapter<Course, CourseViewHolder> {
-    public CourseListAdapter(@NonNull DiffUtil.ItemCallback<Course> diffCallback) {
+    private final CourseViewHolder.OnCourseDeleteListener deleteListener;
+    public CourseListAdapter(@NonNull DiffUtil.ItemCallback<Course> diffCallback, CourseViewHolder.OnCourseDeleteListener listener) {
         super(diffCallback);
+        this.deleteListener = listener;
     }
 
     @Override
     public CourseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return CourseViewHolder.create(parent);
+        return CourseViewHolder.create(parent, deleteListener);
     }
 
     @Override

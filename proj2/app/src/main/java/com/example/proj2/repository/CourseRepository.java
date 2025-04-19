@@ -39,4 +39,10 @@ public class CourseRepository {
             courseDao.deleteAll();
         });
     }
+
+    public void deleteByCourseId(int courseId) {
+        CMSDB.databaseWriteExecutor.execute(() -> {
+            courseDao.deleteByCourseId(courseId);
+        });
+    }
 }
