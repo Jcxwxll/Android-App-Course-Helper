@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData;
 
 import com.example.proj2.dao.CourseDao;
 import com.example.proj2.domain.Course;
-import com.example.proj2.room.CourseDB;
+import com.example.proj2.room.CMSDB;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ public class CourseRepository {
     private LiveData<List<Course>> allCourses;
 
     public CourseRepository(Application application) {
-        CourseDB db = CourseDB.getDatabase(application);
+        CMSDB db = CMSDB.getDatabase(application);
         courseDao = db.courseDao();
         allCourses = courseDao.getAllCourses();
     }
@@ -29,13 +29,13 @@ public class CourseRepository {
     }
 
     public void insert(Course course) {
-        CourseDB.databaseWriteExecutor.execute(() -> {
+        CMSDB.databaseWriteExecutor.execute(() -> {
             courseDao.insert(course);
         });
     }
 
     public void deleteAll() {
-        CourseDB.databaseWriteExecutor.execute(() -> {
+        CMSDB.databaseWriteExecutor.execute(() -> {
             courseDao.deleteAll();
         });
     }
