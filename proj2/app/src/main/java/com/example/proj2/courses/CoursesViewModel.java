@@ -11,7 +11,7 @@ import com.example.proj2.repository.CourseRepository;
 import java.util.List;
 
 public class CoursesViewModel extends AndroidViewModel {
-    private CourseRepository courseRepository;
+    public CourseRepository courseRepository;
     private final LiveData<List<Course>> allCourses;
 
     public CoursesViewModel(Application application) {
