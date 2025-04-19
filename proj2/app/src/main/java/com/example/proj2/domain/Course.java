@@ -11,7 +11,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "courses")
 public class Course {
     @PrimaryKey(autoGenerate = true)
-    private int courseID;
+    private int courseId;
     @NonNull
     @ColumnInfo(name = "code")
     private String courseCode;
@@ -30,12 +30,12 @@ public class Course {
     }
 
     // Getters and setters
-    public int getCourseID() {
-        return courseID;
+    public int getCourseId() {
+        return courseId;
     }
 
-    public void setCourseID(int courseID) {
-        this.courseID = courseID;
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
     }
 
     public String getCourseCode() {
