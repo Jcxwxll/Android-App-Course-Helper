@@ -1,11 +1,12 @@
 <resources>
-    <string name="app_name">proj2</string>
+    <string name="app_name">CMS</string>
 
-    <string name="first_fragment_label">Courses</string>
-    <string name="second_fragment_create_course_label">Create a Course</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="back">Back</string>
     <string name="create">Create</string>
+    <string name="main_activity_title">Courses</string>
+    <string name="create_course_activity_title">Create a Course</string>
 
     <string name="add_course">Add Course</string>
     <string name="hint_course">Course…</string>
