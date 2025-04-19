@@ -6,16 +6,15 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 
+import com.example.proj2.room.CMSDB;
 import com.example.proj2.utils.LiveDataUtils;
-import com.example.proj2.courses.CoursesViewModel;
 import com.example.proj2.databinding.ActivityCourseDetailsBinding;
 
 // This activity displays course information and enrolled students. There is also
 // a back button to return to the main activity
 public class CourseDetailsActivity extends AppCompatActivity {
-    private CoursesViewModel coursesViewModel;
+    private CMSDB db;
     private ActivityCourseDetailsBinding binding;
 
     @Override
@@ -24,8 +23,7 @@ public class CourseDetailsActivity extends AppCompatActivity {
         binding = ActivityCourseDetailsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Get the course view model (this holds the course repository we need)
-        coursesViewModel = new ViewModelProvider(this).get(CoursesViewModel.class);
+        db = CMSDB.getDatabase(this);
 
         int courseId = getIntent().getIntExtra("courseId", -1);
         if (courseId == -1) {
@@ -41,7 +39,7 @@ public class CourseDetailsActivity extends AppCompatActivity {
         });
 
         // Fetch the course from the database
-        LiveDataUtils.observeOnce(coursesViewModel.courseRepository.getCourse(courseId), this, course -> {
+        LiveDataUtils.observeOnce(db.courseDao().getCourse(courseId), this, course -> {
             if (course != null) {
                 binding.titleTextView.setText(getString(R.string.viewing_course_title, course.getCourseName()));
                 binding.courseCodeTextView.setText(course.getCourseCode());

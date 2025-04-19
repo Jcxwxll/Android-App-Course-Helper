@@ -25,7 +25,7 @@
     <string name="enrol_button">Add student</string>
     <string name="add_new_student">Add a new student</string>
     <string name="enrol_student">Enrol a student to %1$s</string>
-    <string name="create_student_metric">Metric</string>
+    <string name="create_student_matric">Matric</string>
     <string name="create_student_name">Name</string>
     <string name="create_student_email">Email</string>
 </resources>

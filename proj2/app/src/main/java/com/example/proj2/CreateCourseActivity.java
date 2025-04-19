@@ -7,18 +7,17 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 
-import com.example.proj2.courses.CoursesViewModel;
 import com.example.proj2.databinding.ActivityCreateCourseBinding;
 import com.example.proj2.domain.Course;
+import com.example.proj2.room.CMSDB;
 
 import java.util.Objects;
 
 // This activity displays a form for the user to fill out to create a
 // new course, a create button, and a back button to return to the main activity
 public class CreateCourseActivity extends AppCompatActivity {
-    private CoursesViewModel coursesViewModel;
+    private CMSDB db;
     private ActivityCreateCourseBinding binding;
 
     @Override
@@ -27,8 +26,7 @@ public class CreateCourseActivity extends AppCompatActivity {
         binding = ActivityCreateCourseBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Get the course view model (this holds the course repository we need)
-        coursesViewModel = new ViewModelProvider(this).get(CoursesViewModel.class);
+        db = CMSDB.getDatabase(this);
 
         // Set up the forum
         EditText courseCodeEditText = binding.courseCodeEditText;
@@ -66,9 +64,11 @@ public class CreateCourseActivity extends AppCompatActivity {
 
             Toast.makeText(this, "Course created.", Toast.LENGTH_LONG).show();
 
-            // Add to DB and redirect back to to MainActivity
-            Course newCourse = new Course(courseCode, courseName, lecturerName);
-            coursesViewModel.insert(newCourse);
+            CMSDB.databaseWriteExecutor.execute(() -> {
+                // Add to DB and redirect back to to MainActivity
+                Course newCourse = new Course(courseCode, courseName, lecturerName);
+                db.courseDao().insert(newCourse);
+            });
 
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
