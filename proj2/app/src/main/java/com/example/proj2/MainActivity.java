@@ -15,6 +15,7 @@ import com.example.proj2.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 
+// This activity displays all courses and a FAB to create a new course
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private CoursesViewModel courseViewModel;

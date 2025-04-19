@@ -15,6 +15,8 @@ import com.example.proj2.domain.Course;
 
 import java.util.Objects;
 
+// This activity displays a form for the user to fill out to create a
+// new course, a create button, and a back button to return to the main activity
 public class CreateCourseActivity extends AppCompatActivity {
     private CoursesViewModel coursesViewModel;
     private ActivityCreateCourseBinding binding;
