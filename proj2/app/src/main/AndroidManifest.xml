@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".CreateCourseActivity" />
         <activity android:name=".CourseDetailsActivity" />
+        <activity android:name=".AddStudentActivity" />
     </application>
 
 </manifest>

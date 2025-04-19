@@ -1,8 +1,11 @@
 package com.example.proj2.domain;
 
+import java.util.UUID;
+
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
@@ -30,6 +33,25 @@ public class Student {
         this.name = name;
         this.email = email;
         this.UserName = UserName;
+    }
+
+    @Ignore
+    public Student(int studentId, @NonNull String name, @NonNull String email) {
+        this.studentId = studentId;
+        this.name = name;
+        this.email = email;
+        // The UserName was not described in full detail in the assignment so I am
+        // generating it
+        this.UserName = UUID.randomUUID().toString().replace("-", "");
+    }
+
+    @Ignore
+    public Student(@NonNull String name, @NonNull String email) {
+        // The UserName was not described in full detail in the assignment so I am
+        // generating it
+        this.name = name;
+        this.email = email;
+        this.UserName = UUID.randomUUID().toString().replace("-", "");
     }
 
     // Getters and setters

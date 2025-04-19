@@ -10,13 +10,16 @@ import com.example.proj2.students.StudentViewHolder;
 import com.example.proj2.domain.Student;
 
 public class StudentListAdapter extends ListAdapter<Student, StudentViewHolder> {
-    public StudentListAdapter(@NonNull DiffUtil.ItemCallback<Student> diffCallback) {
+    private final int courseId;
+
+    public StudentListAdapter(@NonNull DiffUtil.ItemCallback<Student> diffCallback, int courseId) {
         super(diffCallback);
+        this.courseId = courseId;
     }
 
     @Override
     public StudentViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return StudentViewHolder.create(parent);
+        return StudentViewHolder.create(parent, courseId);
     }
 
     @Override
