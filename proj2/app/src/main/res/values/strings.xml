@@ -5,6 +5,7 @@
     <string name="previous">Previous</string>
     <string name="back">Back</string>
     <string name="create">Create</string>
+    <string name="add">Add</string>
     <string name="main_activity_title">Courses</string>
     <string name="create_course_activity_title">Create a Course</string>
 
@@ -20,5 +21,7 @@
     <string name="viewing_course_title">Viewing %1$s</string>
     <string name="enrolled_students">Enrolled Students</string>
     <string name="no_enrollments">No enrollments</string>
-    <string name="enroll_button">Add student</string>
+    <string name="enrol_button">Add student</string>
+    <string name="add_new_student">Add a new student</string>
+    <string name="enrol_student">Enrol a student</string>
 </resources>

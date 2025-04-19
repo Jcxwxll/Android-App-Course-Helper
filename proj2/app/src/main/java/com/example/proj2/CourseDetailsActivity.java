@@ -2,7 +2,6 @@ package com.example.proj2;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -12,7 +11,6 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.proj2.utils.LiveDataUtils;
 import com.example.proj2.courses.CoursesViewModel;
 import com.example.proj2.databinding.ActivityCourseDetailsBinding;
-import com.example.proj2.domain.Course;
 
 // This activity displays course information and enrolled students. There is also
 // a back button to return to the main activity
@@ -52,6 +50,13 @@ public class CourseDetailsActivity extends AppCompatActivity {
             } else {
                 failedToFindCourse();
             }
+        });
+
+        // Set up button to add student
+        binding.addEnrollmentButton.setOnClickListener(v -> {
+            Intent intent = new Intent(this, AddStudentActivity.class);
+            intent.putExtra("courseId", courseId);
+            startActivity(intent);
         });
     }
 
