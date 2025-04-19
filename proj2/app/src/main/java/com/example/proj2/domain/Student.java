@@ -26,16 +26,20 @@ public class Student {
     private String UserName;
 
     // Constructor
-    public Student(@NonNull String name, @NonNull String email, @NonNull String userName) {
+    public Student(@NonNull String name, @NonNull String email, @NonNull String UserName) {
         this.name = name;
         this.email = email;
-        this.UserName = userName;
+        this.UserName = UserName;
     }
 
     // Getters and setters
     @NonNull
     public int getStudentId() {
         return studentId;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
     }
 
     @NonNull
