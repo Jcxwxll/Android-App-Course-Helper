@@ -9,7 +9,7 @@
         android:id="@+id/course_code"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Course Code"
+        android:text="@string/create_course_forum_course_code"
         android:textSize="16sp"
         android:textStyle="bold" />
     <TextView
@@ -18,14 +18,14 @@
         android:layout_height="wrap_content"
         android:textSize="14sp"
         android:layout_marginTop="4dp"
-        android:text="Course Name" />
+        android:text="@string/create_course_forum_course_name" />
 
     <TextView
         android:id="@+id/lecturer_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="Lecturer Name"
+        android:text="@string/create_course_forum_lecturer_name"
         android:textSize="14sp"
         android:textStyle="italic" />
 </LinearLayout>
