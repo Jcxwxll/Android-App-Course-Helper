@@ -28,4 +28,8 @@
     <string name="create_student_matric">Matric</string>
     <string name="create_student_name">Name</string>
     <string name="create_student_email">Email</string>
+
+    <string name="student_matric">Matric: %1$s</string>
+    <string name="student_name">Name: %1$s</string>
+    <string name="student_email">Email: %1$s</string>
 </resources>

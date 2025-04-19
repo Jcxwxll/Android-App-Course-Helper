@@ -56,7 +56,7 @@ public class AddStudentActivity extends AppCompatActivity {
                 String studentEmail = Objects.requireNonNull(binding.studentEmailInputText.getText()).toString().trim();
 
                 if (Working.get()) {
-                    Toast.makeText(this, "A request is already in process. Please try again later.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "A request is already in process. Please try again later", Toast.LENGTH_LONG).show();
                     return;
                 }
                 Working.set(true);
@@ -102,18 +102,18 @@ public class AddStudentActivity extends AppCompatActivity {
                             if (!studentMatricString.isEmpty()) {
                                 studentMatric = Integer.parseInt(studentMatricString);
                             } else {
-                                Toast.makeText(this, "Matric must not be empty.", Toast.LENGTH_LONG).show();
+                                Toast.makeText(this, "Matric must not be empty", Toast.LENGTH_LONG).show();
                                 return;
                             }
                         } catch (NumberFormatException e) {
-                            Toast.makeText(this, "Input a valid Matric, must be an integer.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(this, "Input a valid Matric, must be an integer", Toast.LENGTH_LONG).show();
                             return;
                         }
                         String studentName = Objects.requireNonNull(binding.studentNameInputText.getText()).toString().trim();
                         String studentEmail = Objects.requireNonNull(binding.studentEmailInputText.getText()).toString().trim();
 
                         if (Working.get()) {
-                            Toast.makeText(this, "A request is already in process. Please try again later.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(this, "A request is already in process. Please try again later", Toast.LENGTH_LONG).show();
                             return;
                         }
                         Working.set(true);
@@ -134,7 +134,7 @@ public class AddStudentActivity extends AppCompatActivity {
                     });
                 } else {
                     // Could not find course, send back to main activity
-                    Toast.makeText(this, "Failed to find course. Please try again later.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Failed to find course. Please try again later", Toast.LENGTH_LONG).show();
 
                     Intent intent = new Intent(this, MainActivity.class);
                     startActivity(intent);
@@ -149,11 +149,11 @@ public class AddStudentActivity extends AppCompatActivity {
 
     private void addStudent(String studentName, String studentEmail, StudentResultCallback callback) {
         if (studentName.isEmpty() || studentEmail.isEmpty()) {
-            Toast.makeText(this, "Name or Email must not be empty.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Name or Email must not be empty", Toast.LENGTH_LONG).show();
             callback.onResult(false);
             return;
         }
-        Toast.makeText(this, "Added student.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Added student", Toast.LENGTH_SHORT).show();
         CMSDB.databaseWriteExecutor.execute(() -> {
             Student student = new Student(studentName, studentEmail);
             db.studentDao().insert(student);
@@ -167,12 +167,12 @@ public class AddStudentActivity extends AppCompatActivity {
 
     private void enrolStudentToCourse(int studentMatric, String studentName, String studentEmail, Course course, EnrollmentResultCallback callback) {
         if (studentMatric < 0) {
-            Toast.makeText(this, "Matric must not be negative.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Matric must not be negative", Toast.LENGTH_LONG).show();
             callback.onResult(false);
             return;
         }
         if (studentName.isEmpty() || studentEmail.isEmpty()) {
-            Toast.makeText(this, "Name or Email must not be empty.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Name or Email must not be empty", Toast.LENGTH_LONG).show();
             callback.onResult(false);
             return;
         }
@@ -180,7 +180,7 @@ public class AddStudentActivity extends AppCompatActivity {
         LiveData<Enrollment> enrollmentLiveData = enrollmentDao.getEnrollmentByCourseIdAndStudentId(course.getCourseId(), studentMatric);
         LiveDataUtils.observeOnce(enrollmentLiveData, this, enrollmentResult -> {
             if (enrollmentResult != null) {
-                Toast.makeText(this, "Student is already enrolled.", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Student already enrolled", Toast.LENGTH_LONG).show();
                 callback.onResult(false);
             } else {
                 CMSDB.databaseWriteExecutor.execute(() -> {
@@ -194,7 +194,7 @@ public class AddStudentActivity extends AppCompatActivity {
                     enrollmentDao.insert(newEnrollment);
 
                     runOnUiThread(() -> {
-                        Toast.makeText(this, "Enrolled student.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Enrolled student", Toast.LENGTH_SHORT).show();
                         callback.onResult(true);
                     });
                 });

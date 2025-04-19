@@ -50,19 +50,19 @@ public class CreateCourseActivity extends AppCompatActivity {
 
             // Validate
             if (courseCode.isEmpty()) {
-                Toast.makeText(this, "Course code cannot be empty.", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Course code cannot be empty", Toast.LENGTH_LONG).show();
                 return;
             }
             if (courseName.isEmpty()) {
-                Toast.makeText(this, "Course name cannot be empty.", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Course name cannot be empty", Toast.LENGTH_LONG).show();
                 return;
             }
             if (lecturerName.isEmpty()) {
-                Toast.makeText(this, "Lecturer name cannot be empty.", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Lecturer name cannot be empty", Toast.LENGTH_LONG).show();
                 return;
             }
 
-            Toast.makeText(this, "Course created.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Course created", Toast.LENGTH_LONG).show();
 
             CMSDB.databaseWriteExecutor.execute(() -> {
                 // Add to DB and redirect back to to MainActivity
