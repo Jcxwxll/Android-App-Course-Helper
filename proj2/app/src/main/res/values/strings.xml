@@ -16,4 +16,6 @@
     <string name="create_course_forum_course_code">Course Code</string>
     <string name="create_course_forum_course_name">Course Name</string>
     <string name="create_course_forum_lecturer_name">Lecturer Name</string>
+
+    <string name="viewing_course_title">Viewing %1$s</string>
 </resources>
