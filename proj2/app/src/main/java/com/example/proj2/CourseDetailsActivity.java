@@ -30,7 +30,6 @@ public class CourseDetailsActivity extends AppCompatActivity {
         coursesViewModel = new ViewModelProvider(this).get(CoursesViewModel.class);
 
         int courseId = getIntent().getIntExtra("courseId", -1);
-        Log.d("CourseDetailsActivity", "Course ID: " + courseId);
         if (courseId == -1) {
             failedToFindCourse();
             return;

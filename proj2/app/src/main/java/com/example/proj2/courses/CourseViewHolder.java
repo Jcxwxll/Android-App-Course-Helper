@@ -40,7 +40,7 @@ public class CourseViewHolder extends RecyclerView.ViewHolder {
         // it should direct you to CourseDetailsActivity
         cardView.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), CourseDetailsActivity.class);
-            intent.putExtra("courseId", course.getCourseID());
+            intent.putExtra("courseId", course.getCourseId());
             v.getContext().startActivity(intent);
         });
     }
