@@ -34,39 +34,7 @@ public class StudentRepository {
     }
 
     public LiveData<List<Student>> getStudentsByCourse(int courseId) {
-        MediatorLiveData<List<Student>> studentsInCourse = new MediatorLiveData<>();
-        LiveData<List<Enrollment>> enrollmentsForCourse = enrollmentDao.getEnrollmentsByCourseId(courseId);
-
-        studentsInCourse.addSource(enrollmentsForCourse, enrollments -> {
-            if (enrollments != null) {
-                List<Integer> studentIds = new ArrayList<>();
-                for (Enrollment enrollment : enrollments) {
-                    studentIds.add(enrollment.getStudentId());
-                }
-                if (!studentIds.isEmpty()) {
-                    LiveData<List<Student>> studentsLiveData = studentDao.getStudentsByIds(studentIds);
-                    studentsInCourse.addSource(studentsLiveData, students -> {
-                        if (students != null) {
-                            studentsInCourse.setValue(students);
-                            // This prevents recursion errors
-                            studentsInCourse.removeSource(studentsLiveData);
-                        } else {
-                            studentsInCourse.setValue(new ArrayList<>());
-                        }
-                    });
-                } else {
-                    studentsInCourse.setValue(new ArrayList<>());
-                }
-            } else {
-                studentsInCourse.setValue(new ArrayList<>());
-            }
-        });
-
-        return studentsInCourse;
-    }
-
-    public LiveData<Student> getCourse(int studentId) {
-        return studentDao.getStudent(studentId);
+        return studentDao.getStudentsForCourse(courseId);
     }
 
     public void insert(Student student) {
@@ -78,6 +46,16 @@ public class StudentRepository {
     public void deleteAll() {
         CMSDB.databaseWriteExecutor.execute(() -> {
             studentDao.deleteAll();
+        });
+    }
+
+    public LiveData<Student> getStudent(int studentId) {
+        return studentDao.getStudent(studentId);
+    }
+
+    public void update(Student student) {
+        CMSDB.databaseWriteExecutor.execute(() -> {
+            studentDao.update(student);
         });
     }
 }

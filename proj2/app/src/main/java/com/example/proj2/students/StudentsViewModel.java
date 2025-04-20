@@ -35,4 +35,14 @@ public class StudentsViewModel extends AndroidViewModel {
     public void deleteAll() {
         studentRepository.deleteAll();
     }
+
+    public LiveData<Student> getStudent(int studentId) {
+        return studentRepository.getStudent(studentId);
+    }
+
+    public void update(Student student) {
+        studentRepository.update(student);
+    }
+
+
 }
