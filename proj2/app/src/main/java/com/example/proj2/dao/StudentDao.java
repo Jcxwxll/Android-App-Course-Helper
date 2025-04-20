@@ -29,6 +29,10 @@ public interface StudentDao {
     Student getStudentSync(int studentId);
     @Query("SELECT * FROM students WHERE studentId IN (:studentIds)")
     LiveData<List<Student>> getStudentsByIds(List<Integer> studentIds);
+
+    @Query("SELECT s.* FROM students AS s JOIN enrollments AS e ON s.studentId = e.studentId WHERE e.courseId = :courseId")
+    LiveData<List<Student>> getStudentsForCourse(int courseId);
     @Query("DELETE FROM students")
     void deleteAll();
+
 }

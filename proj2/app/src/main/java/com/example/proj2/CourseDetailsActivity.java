@@ -99,7 +99,10 @@ public class CourseDetailsActivity extends AppCompatActivity {
                 .setItems(options, (dialog, which) -> {
                     switch (which) {
                         case 0: // "Edit"
-                            // TODO: Navigate to EditStudentActivity
+                            Intent editIntent = new Intent(this, EditStudentActivity.class);
+                            editIntent.putExtra("studentId", student.getStudentId());
+                            editIntent.putExtra("courseId", courseId);
+                            startActivity(editIntent);
                             break;
                         case 1: // "Remove"
                             CMSDB.databaseWriteExecutor.execute(() -> {
