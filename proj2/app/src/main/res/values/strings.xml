@@ -32,4 +32,6 @@
     <string name="student_matric">Matric: %1$s</string>
     <string name="student_name">Name: %1$s</string>
     <string name="student_email">Email: %1$s</string>
+
+    <string name="add_student">Add Student</string>
 </resources>

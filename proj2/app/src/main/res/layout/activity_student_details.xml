@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Section Header -->
+    <TextView
+        android:id="@+id/studentInfoHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Student Information"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingBottom="8dp"/>
+
+    <!-- Student’s Name -->
+    <TextView
+        android:id="@+id/studentNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name Placeholder"
+        android:textSize="16sp"
+        android:paddingBottom="4dp"/>
+
+    <!-- Student’s Email -->
+    <TextView
+        android:id="@+id/studentEmailText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="email@placeholder.com"
+        android:paddingBottom="12dp"/>
+
+    <!-- Enrolled Courses Header -->
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enrolled Courses"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        android:paddingBottom="8dp" />
+
+    <!-- RecyclerView of courses -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/coursesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+</LinearLayout>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.proj2">
 
     <application
         android:allowBackup="true"
@@ -12,6 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proj2"
         tools:targetApi="31">
+
+        <!-- Launcher Activity -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -21,10 +24,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Course Flow -->
         <activity android:name=".CreateCourseActivity" />
         <activity android:name=".CourseDetailsActivity" />
         <activity android:name=".AddStudentActivity" />
-        <activity android:name=".EditStudentActivity"/>
+        <activity android:name=".EditStudentActivity" />
+
+        <!-- Student Details Screen (Feature 6) -->
+        <activity android:name=".StudentDetailsActivity" />
+
     </application>
 
 </manifest>

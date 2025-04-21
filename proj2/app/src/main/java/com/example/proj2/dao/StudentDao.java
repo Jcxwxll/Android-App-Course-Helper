@@ -35,4 +35,8 @@ public interface StudentDao {
     @Query("DELETE FROM students")
     void deleteAll();
 
+    @Query("SELECT * FROM students WHERE studentId = :id")
+    LiveData<Student> getStudentById(long id);
+
+
 }

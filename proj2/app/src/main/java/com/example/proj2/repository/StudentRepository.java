@@ -8,6 +8,7 @@ import androidx.lifecycle.MediatorLiveData;
 import com.example.proj2.dao.CourseDao;
 import com.example.proj2.dao.EnrollmentDao;
 import com.example.proj2.dao.StudentDao;
+import com.example.proj2.domain.Course;
 import com.example.proj2.domain.Enrollment;
 import com.example.proj2.domain.Student;
 import com.example.proj2.room.CMSDB;
@@ -58,4 +59,13 @@ public class StudentRepository {
             studentDao.update(student);
         });
     }
+
+    public LiveData<Student> getStudentById(long id) {
+        return studentDao.getStudentById(id);
+    }
+
+    public LiveData<List<Course>> getCoursesForStudent(long studentId) {
+        return courseDao.getCoursesForStudent(studentId); // Make sure this exists in DAO
+    }
+
 }

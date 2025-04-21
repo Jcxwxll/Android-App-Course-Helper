@@ -31,4 +31,8 @@ public interface CourseDao {
     void deleteAll();
     @Query("DELETE FROM courses WHERE courseId = :courseId")
     void deleteByCourseId(int courseId);
+
+    @Query("SELECT c.* FROM courses c INNER JOIN enrollments e ON c.courseId = e.courseId WHERE e.studentId = :studentId")
+    LiveData<List<Course>> getCoursesForStudent(long studentId);
+
 }

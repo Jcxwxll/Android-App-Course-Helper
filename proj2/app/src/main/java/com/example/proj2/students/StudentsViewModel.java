@@ -2,19 +2,21 @@ package com.example.proj2.students;
 
 import android.app.Application;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.example.proj2.domain.Course;
 import com.example.proj2.domain.Student;
 import com.example.proj2.repository.StudentRepository;
 
 import java.util.List;
 
 public class StudentsViewModel extends AndroidViewModel {
-    public StudentRepository studentRepository;
+    private final StudentRepository studentRepository;
     private final LiveData<List<Student>> allStudents;
 
-    public StudentsViewModel(Application application) {
+    public StudentsViewModel(@NonNull Application application) {
         super(application);
         studentRepository = new StudentRepository(application);
         allStudents = studentRepository.getAllStudents();
@@ -44,5 +46,11 @@ public class StudentsViewModel extends AndroidViewModel {
         studentRepository.update(student);
     }
 
+    public LiveData<Student> getStudentById(long id) {
+        return studentRepository.getStudentById(id);
+    }
 
+    public LiveData<List<Course>> getCoursesForStudent(long studentId) {
+        return studentRepository.getCoursesForStudent(studentId);
+    }
 }
