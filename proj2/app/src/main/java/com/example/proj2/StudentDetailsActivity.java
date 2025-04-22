@@ -1,5 +1,6 @@
 package com.example.proj2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,9 +29,22 @@ public class StudentDetailsActivity extends AppCompatActivity {
             finish();
             return;
         }
+        // Pull the courseId for the back button
+        int courseId = getIntent().getIntExtra("courseId", -1);
+        if (courseId < 0) {
+            // No valid courseId → bail out
+            finish();
+            return;
+        }
+
+        findViewById(R.id.backButton).setOnClickListener(v -> {
+            Intent addIntent = new Intent(this, CourseDetailsActivity.class);
+            addIntent.putExtra("courseId", courseId);
+            startActivity(addIntent);
+        });
+
         long studentId = rawId;
 
-        // Wire up the UI
         studentName        = findViewById(R.id.studentNameText);
         studentEmail       = findViewById(R.id.studentEmailText);
         coursesRecyclerView = findViewById(R.id.coursesRecyclerView);

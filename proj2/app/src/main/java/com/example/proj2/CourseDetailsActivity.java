@@ -94,6 +94,7 @@ public class CourseDetailsActivity extends AppCompatActivity {
                         case 0:  // View Details
                             Intent detailIntent = new Intent(this, StudentDetailsActivity.class);
                             detailIntent.putExtra("studentId", student.getStudentId());
+                            detailIntent.putExtra("courseId", courseId);
                             startActivity(detailIntent);
                             break;
 

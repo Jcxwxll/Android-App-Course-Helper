@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Back to main -->
     <Button
         android:id="@+id/backToMainButton"
         android:layout_width="wrap_content"
@@ -15,7 +14,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Screen title -->
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="0dp"
@@ -26,7 +24,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Course code -->
     <TextView
         android:id="@+id/courseCodeTextView"
         android:layout_width="0dp"
@@ -36,7 +33,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Course name -->
     <TextView
         android:id="@+id/courseNameTextView"
         android:layout_width="0dp"
@@ -46,7 +42,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Lecturer name -->
     <TextView
         android:id="@+id/lecturerNameTextView"
         android:layout_width="0dp"
@@ -56,7 +51,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- RecyclerView for enrolled students -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
@@ -66,7 +60,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- “No students enrolled” placeholder -->
     <TextView
         android:id="@+id/noEnrollmentsTextView"
         android:layout_width="0dp"
@@ -78,7 +71,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- FloatingActionButton to add a student -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addStudentButton"
         android:layout_width="wrap_content"

@@ -5,7 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Section Header -->
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+         />
+
     <TextView
         android:id="@+id/studentInfoHeader"
         android:layout_width="wrap_content"
@@ -15,7 +21,6 @@
         android:textStyle="bold"
         android:paddingBottom="8dp"/>
 
-    <!-- Student’s Name -->
     <TextView
         android:id="@+id/studentNameText"
         android:layout_width="wrap_content"
@@ -24,7 +29,6 @@
         android:textSize="16sp"
         android:paddingBottom="4dp"/>
 
-    <!-- Student’s Email -->
     <TextView
         android:id="@+id/studentEmailText"
         android:layout_width="wrap_content"
@@ -32,7 +36,6 @@
         android:text="email@placeholder.com"
         android:paddingBottom="12dp"/>
 
-    <!-- Enrolled Courses Header -->
     <TextView
         android:id="@+id/header"
         android:layout_width="wrap_content"
@@ -43,7 +46,6 @@
         android:layout_marginTop="8dp"
         android:paddingBottom="8dp" />
 
-    <!-- RecyclerView of courses -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/coursesRecyclerView"
         android:layout_width="match_parent"
